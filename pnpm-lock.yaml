@@ -10,12 +10,15 @@ importers:
 
   apps/backend:
     dependencies:
+      dotenv:
+        specifier: ^16.4.7
+        version: 16.4.7
       express:
         specifier: ^5.1.0
         version: 5.1.0
       gun:
-        specifier: ^0.2020.1240
-        version: 0.2020.1240
+        specifier: github:amark/gun
+        version: https://codeload.github.com/amark/gun/tar.gz/4b43fa7f2c085a866551ee36372daed10316354c
       stripe:
         specifier: ^18.0.0
         version: 18.0.0
@@ -711,6 +714,10 @@ packages:
     resolution: {integrity: sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==}
     engines: {node: '>= 0.8'}
 
+  dotenv@16.4.7:
+    resolution: {integrity: sha512-47qPchRCykZC03FhkYAhrvwU4xDBFIj1QPqaarj6mdM/hgUzfPHcpkHJOn3mJAufFeeAxAzeGsr5X0M4k6fLZQ==}
+    engines: {node: '>=12'}
+
   dunder-proto@1.0.1:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
     engines: {node: '>= 0.4'}
@@ -912,6 +919,11 @@ packages:
 
   gun@0.2020.1240:
     resolution: {integrity: sha512-uhnyadZTywn0HHgBjS2DePqpcdwLeVm6nFeSZZBPJRltm9O8MjFPyltaxk2PBKS+O8wSZac9qlbCIriJDgQQog==}
+    engines: {node: '>=0.8.4'}
+
+  gun@https://codeload.github.com/amark/gun/tar.gz/4b43fa7f2c085a866551ee36372daed10316354c:
+    resolution: {tarball: https://codeload.github.com/amark/gun/tar.gz/4b43fa7f2c085a866551ee36372daed10316354c}
+    version: 0.2020.1239
     engines: {node: '>=0.8.4'}
 
   has-flag@3.0.0:
@@ -2015,6 +2027,8 @@ snapshots:
 
   depd@2.0.0: {}
 
+  dotenv@16.4.7: {}
+
   dunder-proto@1.0.1:
     dependencies:
       call-bind-apply-helpers: 1.0.2
@@ -2269,6 +2283,15 @@ snapshots:
   grid-index@1.1.0: {}
 
   gun@0.2020.1240:
+    dependencies:
+      ws: 7.5.10
+    optionalDependencies:
+      '@peculiar/webcrypto': 1.5.0
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+
+  gun@https://codeload.github.com/amark/gun/tar.gz/4b43fa7f2c085a866551ee36372daed10316354c:
     dependencies:
       ws: 7.5.10
     optionalDependencies:
