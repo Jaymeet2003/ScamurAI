@@ -1,0 +1,19 @@
+{
+  "name": "fraud_detection_firewall",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "workspaces":[  
+    "apps/backend",
+    "apps/frontend",
+    "packages/shared"],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:backend": "pnpm --filter backend dev",
+    "dev:frontend": "pnpm --filter frontend dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.7.1"
+}
