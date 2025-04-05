@@ -1,4 +1,11 @@
 .env
 node_modules/
 **/node_modules/
+<<<<<<< HEAD
 venv/
+=======
+.python-version
+**/.python-version
+*.csv
+*.pkl
+>>>>>>> origin/Jimmy
