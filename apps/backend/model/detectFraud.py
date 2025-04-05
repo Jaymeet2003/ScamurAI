@@ -63,16 +63,16 @@ y_proba = model_pipeline.predict_proba(X_test)[:, 1]
 print(classification_report(y_test, y_pred))
 
 # # Find best threshold
-# precision, recall, thresholds = precision_recall_curve(y_test, y_proba)
-# f1_scores = 2 * (precision * recall) / (precision + recall + 1e-9)
-# best_threshold = thresholds[np.argmax(f1_scores)]
+precision, recall, thresholds = precision_recall_curve(y_test, y_proba)
+f1_scores = 2 * (precision * recall) / (precision + recall + 1e-9)
+best_threshold = thresholds[np.argmax(f1_scores)]
 
-# print("Best threshold:", best_threshold)
-# print("Best F1 score:", f1_scores[np.argmax(f1_scores)])
+print("Best threshold:", best_threshold)
+print("Best F1 score:", f1_scores[np.argmax(f1_scores)])
 
 # Save model and threshold
-joblib.dump(model_pipeline, "datasets/stripe_fraud_model.pkl")
-# joblib.dump(best_threshold, "datasets/optimal_threshold.pkl")
+joblib.dump(model_pipeline, "stripe_fraud_model.pkl")
+joblib.dump(best_threshold, "optimal_threshold.pkl")
 
 # Predictions
 y_pred = model_pipeline.predict(X_test)

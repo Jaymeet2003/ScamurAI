@@ -1,6 +1,13 @@
 .env
 node_modules/
 **/node_modules/
-venv311/
+venv/
+.python-version
+**/.python-version
+*.csv
+*.pkl
 .DS_Store
-apps/backend/model/datasets/
+venv311/
+keypair.json
+**/gun-data/
+**/data/

@@ -1,0 +1,129 @@
+.landing-root {
+    min-height: 100vh;
+    background-color: #0a0a14;
+    color: #e0e0ff;
+    position: relative;
+    overflow: hidden;
+}
+
+.three-background {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid #312e81;
+}
+
+.navbar-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    padding-right: 4rem; /* This shifts the login button right */
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+.gradient-brand {
+    background: linear-gradient(to right, #22d3ee, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gradient-headline {
+    background: linear-gradient(to right, #22d3ee, #9333ea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main-section {
+    padding-top: 6rem;
+    position: relative;
+    z-index: 10;
+}
+
+.orbitron {
+    font-family: 'Orbitron', sans-serif;
+}
+
+.floating {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.cyber-line {
+    height: 2px;
+    background: linear-gradient(to right, #4f46e5, #9333ea);
+    border-radius: 9999px;
+}
+
+.feature-card {
+    background-color: rgba(49, 46, 129, 0.2);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid #4f46e5;
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.2);
+    transition: transform 0.2s ease;
+    width: 320px;
+    flex-shrink: 0;
+}
+
+.feature-card:hover {
+    transform: scale(1.05);
+}
+
+.feature-icon {
+    width: 4rem;
+    height: 4rem;
+    background-color: #3730a3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    border-radius: 9999px;
+}
+
+.image-container {
+    border: 2px solid #6366f1;
+    border-radius: 1rem;
+    padding: 4px;
+}
+
+.footer {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    margin-top: 4rem;
+    border-top: 1px solid #312e81;
+    position: relative;
+    z-index: 10;
+}
+
+.btn-gradient {
+    background: linear-gradient(to right, #6366f1, #9333ea);
+    color: white;
+    border: none;
+}
+
+.btn-outline {
+    border: 2px solid #6366f1;
+    color: #a5b4fc;
+}
