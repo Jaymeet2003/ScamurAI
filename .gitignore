@@ -1,3 +1,7 @@
 .env
 node_modules/
 **/node_modules/
+.python-version
+**/.python-version
+*.csv
+*.pkl
