@@ -4,6 +4,8 @@ import { Button } from "../components/button";
 import { Card } from "../components/card";
 import { Container } from "../components/container";
 import './landing.css';
+import finalLogo from '../assets/finalLogo.png'; // Adjust the path as necessary
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const Landing = () => {
   const canvasRef = useRef(null);
@@ -87,65 +89,61 @@ const Landing = () => {
     <div className="landing-root">
       <div ref={canvasRef} className="three-background" />
 
-      <nav className="navbar">
+      <div className="navbar">
         <div className="navbar-content">
-          <span className="brand orbitron gradient-text">ScamurAI</span>
-          <Button onClick={handleLogin} className="login-button">
-            <i className="bi bi-person-circle" />
-            Login
-          </Button>
+          <img src={finalLogo} alt="ScamurAI Logo" className="brand-logo" /> {/* Logo with class for styling */}
         </div>
-      </nav>
+        <div className="navbar-logout">
+          <button onClick = {handleLogin} className="navbar-logout-btn">Login</button>
+        </div>
+      </div>
 
-      <main className="main-section">
+            <main className="main-section">
         <Container>
-          <div className="flex flex-col md:flex-row gap-12 items-center justify-between">
-            <div className="text-center md:text-left">
-              <h1 className="orbitron text-4xl md:text-5xl font-bold mb-6 gradient-text">
+          <div className="hero-section">
+            <div className="hero-text">
+              <h1 className="hero-title">
                 Protect Yourself from <br />Scams with AI
               </h1>
-              <p className="text-indigo-100 text-lg mb-8">
+              <p className="hero-description">
                 ScamurAI uses advanced artificial intelligence to detect and prevent online scams in real-time. Stay safe with our cutting-edge technology.
               </p>
             </div>
-
-            <div className="hidden md:block floating">
-              <div className="cyber-border p-1 rounded-lg">
-              </div>
+      
+            <div className="hero-image">
+              <div className="cyber-border"></div>
             </div>
           </div>
-
-          <div className="cyber-line my-16" />
-
-          <div className="mt-16 flex flex-col md:flex-row items-center justify-center gap-6 flex-wrap">
-            {[
-              {
-                icon: "shield-check",
-                title: "Real-time Protection",
-                description: "Instant scanning and analysis of potential threats as they happen.",
-              },
-              {
-                icon: "graph-up",
-                title: "Smart Detection",
-                description: "Advanced AI algorithms to identify sophisticated scam attempts.",
-              },
-              {
-                icon: "phone",
-                title: "Mobile Ready",
-                description: "Protect yourself on any device, anywhere, anytime.",
-              },
-            ].map((feature, index) => (
-              <Card key={index} className="feature-card w-[320px]">
-                <div className="feature-icon">
-                  <i className={`bi bi-${feature.icon} text-2xl text-indigo-200`} />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-center orbitron text-indigo-200">
-                  {feature.title}
-                </h3>
-                <p className="text-indigo-100 text-center">{feature.description}</p>
-              </Card>
-            ))}
-          </div>
+      
+          <div className="cyber-line"></div>
+      
+          <div className="features-section">
+  {[
+    {
+      icon: "shield-check",
+      title: "Real-time Protection",
+      description: "Instant scanning and analysis of potential threats as they happen.",
+    },
+    {
+      icon: "graph-up",
+      title: "Smart Detection",
+      description: "Advanced AI algorithms to identify sophisticated scam attempts.",
+    },
+    {
+      icon: "phone",
+      title: "Mobile Ready",
+      description: "Protect yourself on any device, anywhere, anytime.",
+    },
+  ].map((feature, index) => (
+    <Card key={index} className="feature-card">
+      <div className="feature-icon">
+        <i className={`bi bi-${feature.icon}`}></i> {/* Ensure the icon class is correct */}
+      </div>
+      <h3 className="feature-title">{feature.title}</h3>
+      <p className="feature-description">{feature.description}</p>
+    </Card>
+  ))}
+</div>
         </Container>
       </main>
 
