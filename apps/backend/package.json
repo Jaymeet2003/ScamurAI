@@ -12,10 +12,12 @@
   "license": "ISC",
   "packageManager": "pnpm@10.7.1",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^5.1.0",
     "express-openid-connect": "^2.18.0",
     "gun": "github:amark/gun",
+    "node-fetch": "^3.3.2",
     "stripe": "^18.0.0"
   },
   "devDependencies": {
