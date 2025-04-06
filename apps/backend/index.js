@@ -10,20 +10,31 @@ const { auth } = require('express-openid-connect');
 const app = express();
 const PORT = 5050;
 
+
+app.use(express.json());
+
+
 // CORS setup
 app.use(
   cors({
     origin: function (origin, callback) {
-      const allowedOrigins = ["http://localhost:5173", "http://localhost:9000"];
+      const allowedOrigins = [
+        "http://localhost:5173",
+        "http://localhost:9000",
+        "http://localhost:8080",
+        "https://dev-nyglezhgb0zctxph.us.auth0.com" // Auth0 callback origin
+      ];
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
+        console.warn("❌ Blocked by CORS:", origin);
         callback(new Error("Not allowed by CORS"));
       }
     },
     credentials: true,
-  }),
+  })
 );
+
 
 // Auth0 configuration
 const config = {
@@ -36,8 +47,6 @@ const config = {
 };
 
 
-
-app.use(express.json());
 
 let capturedIp = null;
 let geoInfo = null;
@@ -82,32 +91,38 @@ app.listen(PORT, () => {
   console.log(`✅ Server listening at http://localhost:${PORT}`);
 });
 
+
+
 app.post('/gun-publish', async (req, res) => {
   const data = req.body;
-  console.log("📨 Received fraud publish request:", data);
 
-  // Basic validation
-  if (typeof data !== 'object' || !data.transactionID || !data.amount || typeof data.fraud !== 'boolean') {
-    return res.status(400).json({ error: 'Invalid fraud report payload' });
+  // Map transactionID to id
+  data.id = data.id || data.transactionID;
+
+  if (!data?.id || !data?.amount) {
+    return res.status(400).json({ error: 'Missing required fraud data' });
   }
 
   try {
-    const fraudPayload = {
-      id: data.transactionID,
-      amount: data.amount,
-      type: 'ml-detected',
-      fraud: data.fraud,
-      score: data.score || null,
-      threshold: data.threshold || null,
-      date: data.date || new Date().toISOString(),
-      createdAt: new Date().toISOString()
-    };
+    data.createdAt = data.createdAt || new Date().toISOString();
+    data.timestamp = data.timestamp || Date.now();
 
-    await publishFraud(fraudPayload);
-
-    return res.json({ status: 'published', id: data.transactionID });
+    await publishFraud(data); // from gunsea.js
+    return res.json({ status: 'published', id: data.id });
   } catch (err) {
     console.error('❌ Error publishing fraud alert:', err);
     return res.status(500).json({ error: 'Internal Server Error' });
   }
+});
+
+// Add this route for quick inspection
+app.get('/debug/:id', (req, res) => {
+  const id = req.params.id;
+
+  gun.get('fraud-firewall').get(id).once(data => {
+    if (!data) {
+      return res.status(404).json({ error: 'Not found' });
+    }
+    res.json(data);
+  });
 });
