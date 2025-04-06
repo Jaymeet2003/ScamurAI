@@ -48,7 +48,7 @@ async function broadcastFraudAlert(data) {
 
 app.get("/", (req, res) => res.send("🔫 Gun.js Relay with SEA ready"));
 
-const PORT = process.env.PORT_RELAY|| 3031;
+const PORT = process.env.PORT_RELAY || 3031;
 server.listen(PORT, () => {
   console.log(`🚀 Gun relay running at http://localhost:${PORT}/gun`);
 });

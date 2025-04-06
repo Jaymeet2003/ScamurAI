@@ -1,0 +1,34 @@
+[
+  {
+    "fraud": false,
+    "score": 0.39769309759140015,
+    "threshold": 0.5767017602920532,
+    "amount": 20.0,
+    "transactionID": "pi_3RApyaFs058Ux2Mv1ygS0JsN",
+    "date": "2025-04-06T09:58:52"
+  },
+  {
+    "fraud": false,
+    "score": 0.39769309759140015,
+    "threshold": 0.5767017602920532,
+    "amount": 20.0,
+    "transactionID": "pi_3RApyaFs058Ux2Mv1ygS0JsN",
+    "date": "2025-04-06T09:58:52"
+  },
+  {
+    "fraud": false,
+    "score": 0.39769309759140015,
+    "threshold": 0.5767017602920532,
+    "amount": 10000.0,
+    "transactionID": "pi_3RApzOFs058Ux2Mv19uY5lGh",
+    "date": "2025-04-06T09:59:42"
+  },
+  {
+    "fraud": false,
+    "score": 0.39769309759140015,
+    "threshold": 0.5767017602920532,
+    "amount": 10000.0,
+    "transactionID": "pi_3RApzOFs058Ux2Mv19uY5lGh",
+    "date": "2025-04-06T09:59:42"
+  }
+]
