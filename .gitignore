@@ -11,3 +11,6 @@ venv311/
 keypair.json
 **/gun-data/
 **/data/
+__pycache__/
+**/last_payload.json
+**/last_prediction.json

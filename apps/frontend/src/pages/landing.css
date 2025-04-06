@@ -12,7 +12,16 @@
     z-index: 0;
 }
 
+.brand-logo {
+    height: 70px; /* Adjust the height as needed */
+    width: auto;  /* Maintain aspect ratio */
+    margin-right: 10px; /* Add spacing if needed */
+}
+
 .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(12px);
     position: fixed;
@@ -20,17 +29,19 @@
     top: 0;
     z-index: 50;
     border-bottom: 1px solid #312e81;
-}
+    padding: 0 20px;
+    height: 4rem;
+    left: 0; /* Ensure it's aligned with the left edge */
+    right: 0; /* Ensure it's aligned with the right edge */
+    box-sizing: border-box; /* Prevents overflow issues */
+  }
 
 .navbar-content {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 1rem;
-    padding-right: 4rem; /* This shifts the login button right */
-    height: 4rem;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-right: 4rem; /* Adjusted for desktop */
 }
 
 .brand {
@@ -54,6 +65,7 @@
     padding-top: 6rem;
     position: relative;
     z-index: 10;
+    padding-bottom: 4rem;
 }
 
 .orbitron {
@@ -74,6 +86,16 @@
     height: 2px;
     background: linear-gradient(to right, #4f46e5, #9333ea);
     border-radius: 9999px;
+    margin: 2rem 0;
+}
+
+.features-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 2rem;
 }
 
 .feature-card {
@@ -85,6 +107,8 @@
     transition: transform 0.2s ease;
     width: 320px;
     flex-shrink: 0;
+    text-align: center;
+    flex-direction: row;
 }
 
 .feature-card:hover {
@@ -102,6 +126,19 @@
     border-radius: 9999px;
 }
 
+.feature-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #c3dafe;
+}
+
+.feature-description {
+    color: #c3dafe;
+    font-size: 1rem;
+}
+
 .image-container {
     border: 2px solid #6366f1;
     border-radius: 1rem;
@@ -115,15 +152,76 @@
     border-top: 1px solid #312e81;
     position: relative;
     z-index: 10;
+    padding: 2rem 0;
 }
 
-.btn-gradient {
+/* .btn-gradient {
     background: linear-gradient(to right, #6366f1, #9333ea);
     color: white;
     border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    transition: background 0.3s ease;
+}
+
+.btn-gradient:hover {
+    background: linear-gradient(to right, #9333ea, #6366f1);
 }
 
 .btn-outline {
     border: 2px solid #6366f1;
     color: #a5b4fc;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    transition: color 0.3s ease;
 }
+
+.btn-outline:hover {
+    color: #6366f1;
+} */
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .navbar-content {
+        padding-right: 2rem; /* Adjusted for mobile */
+    }
+
+    .feature-card {
+        width: 100%;
+        margin: 1rem 0;
+    }
+    
+    .main-section {
+        padding-top: 5rem;
+    }
+}
+.navbar-logout button {
+    background: linear-gradient(to right, #9333ea, #6366f1);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 16px;
+  }
+  
+  .navbar-logout button:hover {
+    background: linear-gradient(to right, #6366f1, #9333ea);
+    transform: scale(1.05);
+  }
+
+  .btn {
+    background-color: #6366f1;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #9333ea;
+    transform: scale(1.05);
+  }
