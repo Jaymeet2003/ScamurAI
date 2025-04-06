@@ -67,7 +67,7 @@ app.get('/payment', async (req, res) => {
   const startTime = Math.floor(Date.now() / 1000);
   findAndProcessNewCharge(startTime, capturedIp, geoInfo);
 
-  res.redirect('https://buy.stripe.com/test_aEU4go4XjaBN90Y6oo');
+  res.redirect('https://buy.stripe.com/test_aEU5ks0H38tF4KI4gh');
 });
 
 app.listen(PORT, () => {
