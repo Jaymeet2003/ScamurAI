@@ -3,25 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "workspaces": [
+  "workspaces":[  
     "apps/backend",
     "apps/frontend",
-    "packages/shared"
-  ],
+    "packages/shared"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev:backend": "pnpm --filter backend dev",
-    "dev:frontend": "pnpm --filter frontend dev",
-    "start:all": "concurrently \"pnpm relay\" \"pnpm backend\" \"pnpm predict\"",
-    "relay": "node apps/backend/relay/server.js",
-    "backend": "node apps/backend/index.js",
-    "predict": "cd apps/backend/model && python predict.py"
+    "dev:frontend": "pnpm --filter frontend dev"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.7.1",
-  "devDependencies": {
-    "concurrently": "^9.1.2"
-  }
+  "packageManager": "pnpm@10.7.1"
 }
