@@ -5,7 +5,6 @@ import pandas as pd
 import uvicorn 
 from datetime import datetime
 import json
-import requests
 
 app = FastAPI()
 
@@ -75,27 +74,10 @@ async def root(request: Request):
                 "date": datetime.utcfromtimestamp(payment_intent.get("created", 0)).isoformat()
             }
 
-            try:
-                with open("../relay/fraud_audit_log.json", "r") as f:
-                    existing_logs = json.load(f)
-            except (FileNotFoundError, json.JSONDecodeError):
-                existing_logs = []
-
-            existing_logs.append(result)
-
-            with open("../relay/fraud_audit_log.json", "w") as f:
-                json.dump(existing_logs, f, indent=2)
-
             with open("last_prediction.json", "w") as out:
                 json.dump(result, out, indent=4)
 
             print("✅ Saved Prediction Result:", result)
-            
-            try:
-                requests.post("http://localhost:5050/gun-publish", json=result)
-                print("📡 Fraud alert published to Gun network.")
-            except Exception as e:
-                print("❌ Failed to publish to Gun network:", e)
 
         return {
             "fraud": False,
