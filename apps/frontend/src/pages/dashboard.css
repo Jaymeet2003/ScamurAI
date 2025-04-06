@@ -258,6 +258,16 @@
   min-height: 350px; /* Set a minimum height */
 }
 
+.animated-logo {
+  height: 40px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.animated-logo:hover {
+  transform: rotate(10deg) scale(1.05);
+}
+
+
 .toast-header {
   font-weight: bold;
   font-size: 18px;

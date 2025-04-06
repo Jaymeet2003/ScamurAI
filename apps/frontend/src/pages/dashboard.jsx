@@ -1,19 +1,30 @@
 import React, { useState } from "react";
-import './Dashboard.css';
+import './dashboard.css';
 import Toast from '../components/toast'; // Import the Toast component
+import finalLogo from '../assets/finalLogo.png'; // adjust if needed
+
 
 const handleLogout = () => {
   window.location.href = 'http://localhost:5050/logout';
 };
 
-const Navbar = () => {
+const Navbar = ({ handleLogout }) => {
   return (
     <div className="navbar">
-      <div className="navbar-logo">ScamurAI</div>
+      <div className="navbar-logo" style={{ display: 'flex', alignItems: 'center' }}>
+        <img
+          src={finalLogo}
+          alt="ScamurAI Logo"
+          style={{ height: '40px', marginRight: '10px' }}
+         className="animated-logo"
+        />
+        
+      </div>
+
       <div className="navbar-links">
         <a href="/" className="navbar-home">Peer Network</a>
       </div>
-     
+
       <div className="navbar-logout">
         <button onClick={handleLogout} className="navbar-logout-btn">Logout</button>
       </div>
