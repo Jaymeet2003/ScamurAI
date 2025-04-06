@@ -78,7 +78,7 @@ const Landing = () => {
 
       <main className="main-section">
         <Container>
-          {/* Updated layout: Text left, Image right */}
+          
           <div className="flex flex-col md:flex-row gap-12 items-center justify-between">
             <div className="text-center md:text-left">
               <h1 className="orbitron text-4xl md:text-5xl font-bold mb-6 gradient-text">

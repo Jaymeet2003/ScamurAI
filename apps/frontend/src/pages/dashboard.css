@@ -1,0 +1,286 @@
+.dashboard-container {
+  font-family: 'Orbitron', sans-serif;
+  padding: 20px;
+  background-color: #0a0a14; /* Dark background */
+  color: #e0e0ff; /* Light text color */
+  border-radius: 10px;
+  margin-top: 80px; /* To offset navbar */
+}
+
+.dashboard-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 36px;
+  color: #e0e0ff;
+}
+
+.dashboard-header p {
+  margin: 0;
+  font-size: 18px;
+  color: #d0d0ff;
+}
+
+.dashboard-main {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.graph-area {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  min-height: 200px;
+  border: 2px solid #6366f1;
+}
+
+.graph-placeholder {
+  background-color: #777;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 180px;
+  color: #aaa;
+  font-size: 18px;
+}
+
+.transaction-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #333;
+  border-radius: 8px;
+  border: 2px solid #6366f1;
+}
+
+.transaction-table th, .transaction-table td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #555;
+  font-size: 16px;
+}
+
+.transaction-table th {
+  background-color: #6366f1;
+  color: #fff;
+}
+
+.transaction-table td.flagged {
+  color: #ff6347;
+  font-weight: bold;
+}
+
+.transaction-table td.safe {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.fraud-alerts {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.fraud-alert {
+  background-color: rgba(49, 46, 129, 0.2);
+  padding: 15px;
+  border-radius: 10px;
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid #6366f1;
+  box-shadow: 0 0 10px rgba(79, 70, 229, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.fraud-alert:hover {
+  transform: scale(1.05);
+}
+
+.fraud-alert-status {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.fraud-alert-amount {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffeb3b;
+}
+
+.level1 {
+  background-color: rgba(0, 255, 0, 0.2);
+}
+
+.level2 {
+  background-color: rgba(255, 255, 0, 0.2);
+}
+
+.level3 {
+  background-color: rgba(255, 165, 0, 0.2);
+}
+
+.level4 {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid #312e81;
+  padding: 0 20px;
+  height: 4rem;
+  left: 0; /* Ensure it's aligned with the left edge */
+  right: 0; /* Ensure it's aligned with the right edge */
+  box-sizing: border-box; /* Prevents overflow issues */
+}
+
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e0e0ff;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.navbar-links a {
+  color: #e0e0ff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.navbar-links a:hover {
+  color: #9333ea;
+}
+
+.navbar-home {
+  font-size: 16px;
+  font-weight: bold;
+  color: #e0e0ff;
+}
+
+.navbar-home:hover {
+  color: #9333ea;
+}
+
+.navbar-logout button {
+  background: linear-gradient(to right, #9333ea, #6366f1);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 16px;
+}
+
+.navbar-logout button:hover {
+  background: linear-gradient(to right, #6366f1, #9333ea);
+  transform: scale(1.05);
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 80%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-item {
+  margin-bottom: 15px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  background-color: #6366f1;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #9333ea;
+  transform: scale(1.05);
+}
+/* Toast Styles */
+/* Toast Styles */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #0a0a14; /* Match the dashboard background */
+  color: #101011; /* Light text for contrast */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: opacity 0.5s ease;
+}
+
+.toast-header {
+  font-weight: bold;
+}
+
+.toast-body {
+  margin-top: 10px;
+}
+
+.toast-close-btn {
+  background-color: #6366f1;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.toast-close-btn:hover {
+  background-color: #7a1de1;
+  transform: scale(1.05);
+}
