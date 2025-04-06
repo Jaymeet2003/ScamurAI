@@ -1,7 +1,13 @@
 .env
 node_modules/
 **/node_modules/
+venv/
 .python-version
 **/.python-version
 *.csv
 *.pkl
+.DS_Store
+venv311/
+keypair.json
+**/gun-data/
+**/data/
