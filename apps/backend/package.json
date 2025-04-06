@@ -14,6 +14,7 @@
   "dependencies": {
     "dotenv": "^16.4.7",
     "express": "^5.1.0",
+    "express-openid-connect": "^2.18.0",
     "gun": "github:amark/gun",
     "stripe": "^18.0.0"
   },
