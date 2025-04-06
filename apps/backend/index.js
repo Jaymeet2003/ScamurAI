@@ -12,7 +12,14 @@ const PORT = 5050;
 // CORS setup
 app.use(
   cors({
-    origin: "http://localhost:5173", // Adjust this to match your frontend URL
+    origin: function (origin, callback) {
+      const allowedOrigins = ["http://localhost:5173", "http://localhost:9000"];
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   }),
 );
@@ -72,4 +79,34 @@ app.get('/payment', async (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`✅ Server listening at http://localhost:${PORT}`);
+});
+
+app.post('/gun-publish', async (req, res) => {
+  const data = req.body;
+  console.log("📨 Received fraud publish request:", data);
+
+  // Basic validation
+  if (typeof data !== 'object' || !data.transactionID || !data.amount || typeof data.fraud !== 'boolean') {
+    return res.status(400).json({ error: 'Invalid fraud report payload' });
+  }
+
+  try {
+    const fraudPayload = {
+      id: data.transactionID,
+      amount: data.amount,
+      type: 'ml-detected',
+      fraud: data.fraud,
+      score: data.score || null,
+      threshold: data.threshold || null,
+      date: data.date || new Date().toISOString(),
+      createdAt: new Date().toISOString()
+    };
+
+    await publishFraud(fraudPayload);
+
+    return res.json({ status: 'published', id: data.transactionID });
+  } catch (err) {
+    console.error('❌ Error publishing fraud alert:', err);
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
