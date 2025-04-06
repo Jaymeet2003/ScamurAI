@@ -1,29 +1,26 @@
 {
-  "payment_intent_id": "pi_3RAnZ5Fs058Ux2Mv1ybmFwA3",
-  "charge_id": "ch_3RAnZ5Fs058Ux2Mv1wID9cGW",
+  "payment_intent_id": "pi_3RAnvMFs058Ux2Mv1OnNhscH",
+  "charge_id": "ch_3RAnvMFs058Ux2Mv1ww8l7MW",
   "amount": "$10.00",
-  "timestamp": "2025-04-06T07:24:45.000Z",
+  "timestamp": "2025-04-06T07:47:25.000Z",
   "user_ip": "8.8.8.8",
-  "geolocation": {},
-  "charge": {
-    "status": "succeeded",
-    "brand": "visa",
-    "last4": "4242",
-    "country": "US",
-    "risk_score": 13,
-    "risk_level": "normal",
-    "message": "Payment complete."
-  },
-  "billing_details": {
-    "email": "ayushthakkar18@gmail.com",
-    "name": "Ayush Thakkar",
-    "address": {
-      "city": "Hanover Park",
-      "country": "US",
-      "line1": "1244 Hialeah ln",
-      "line2": null,
-      "postal_code": "60133",
-      "state": "IL"
-    }
-  }
+  "geo_country": "N/A",
+  "geo_city": "N/A",
+  "geo_region": "N/A",
+  "geo_zip": "N/A",
+  "charge_status": "succeeded",
+  "charge_brand": "visa",
+  "charge_last4": "4242",
+  "charge_country": "US",
+  "risk_score": 47,
+  "risk_level": "normal",
+  "seller_message": "Payment complete.",
+  "billing_email": "thakkarayush2003@gmail.com",
+  "billing_name": "Ayush Thakkar",
+  "billing_city": "Hanover Park",
+  "billing_country": "US",
+  "billing_line1": "1244 Hialeah ln",
+  "billing_line2": "",
+  "billing_postal_code": "60133",
+  "billing_state": "IL"
 }

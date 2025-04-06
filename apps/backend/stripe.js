@@ -28,28 +28,39 @@ const findAndProcessNewCharge = (startTime, ip, geoInfo) => {
         amount: `$${(charge.amount / 100).toFixed(2)}`,
         timestamp: new Date(charge.created * 1000).toISOString(),
         user_ip: ip,
-        geolocation: geoInfo || {},
-        charge: {
-          status: charge.status,
-          brand: charge.payment_method_details?.card?.brand,
-          last4: charge.payment_method_details?.card?.last4,
-          country: charge.payment_method_details?.card?.country,
-          risk_score: charge.outcome?.risk_score ?? 'N/A',
-          risk_level: charge.outcome?.risk_level ?? 'N/A',
-          message: charge.outcome?.seller_message ?? 'N/A'
-        },
-        billing_details: {
-          email: charge.billing_details?.email || intent.customer?.email || 'N/A',
-          name: charge.billing_details?.name || intent.customer?.name || 'N/A',
-          address: charge.billing_details?.address || {}
-        }
+
+        // Geolocation
+        geo_country: geoInfo.country || 'N/A',
+        geo_city: geoInfo.city || 'N/A',
+        geo_region: geoInfo.regionName || 'N/A',
+        geo_zip: geoInfo.zip || 'N/A',
+
+        // Charge details (flattened)
+        charge_status: charge.status,
+        charge_brand: charge.payment_method_details?.card?.brand || 'N/A',
+        charge_last4: charge.payment_method_details?.card?.last4 || 'N/A',
+        charge_country: charge.payment_method_details?.card?.country || 'N/A',
+        risk_score: charge.outcome?.risk_score ?? 'N/A',
+        risk_level: charge.outcome?.risk_level ?? 'N/A',
+        seller_message: charge.outcome?.seller_message ?? 'N/A',
+
+        // Billing details (flattened)
+        billing_email: charge.billing_details?.email || intent.customer?.email || 'N/A',
+        billing_name: charge.billing_details?.name || intent.customer?.name || 'N/A',
+        billing_city: charge.billing_details?.address?.city || 'N/A',
+        billing_country: charge.billing_details?.address?.country || 'N/A',
+        billing_line1: charge.billing_details?.address?.line1 || 'N/A',
+        billing_line2: charge.billing_details?.address?.line2 || '',
+        billing_postal_code: charge.billing_details?.address?.postal_code || 'N/A',
+        billing_state: charge.billing_details?.address?.state || 'N/A'
       };
 
-      console.log('\n🧾 New Payment Detected & Processed:');
+      console.log('\n🧾 Flattened Stripe Payment Data:');
       console.dir(output, { depth: null });
 
       fs.writeFileSync('dashboard-view.json', JSON.stringify(output, null, 2));
 
+      // Replace with real fraud detection logic later
       const is_fraud = false;
 
       if (is_fraud) {
