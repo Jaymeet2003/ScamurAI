@@ -14,7 +14,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Landing from './pages/landing';
 import Dashboard from './pages/dashboard';
-// import PrivateRoute from './components/PrivateRoute';
+import PrivateRoute from './components/privateroute';
 import './App.css';
 function App() {
   return (
@@ -24,9 +24,9 @@ function App() {
         <Route
           path="/dashboard"
           element={
-            
+            <PrivateRoute>
               <Dashboard />
-           
+            </PrivateRoute>
           }
         />
         

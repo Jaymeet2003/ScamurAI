@@ -177,32 +177,13 @@ app.get("/", (req, res) => {
 });
 const { requiresAuth } = require('express-openid-connect');
 
-// app.get("/profile", async (req, res) => {
-//   if (!req.oidc.isAuthenticated()) return res.status(401).send("Not logged in");
-
-//   const authUser = req.oidc.user;
-
-//   try {
-//     let user = await User.findOne({ email: authUser.email });
-//     if (!user) {
-//       user = await User.create({
-//         name: authUser.name,
-//         email: authUser.email,
-//         picture: authUser.picture,
-//         Total_Bids: user.Total_Bids,
-//         Loyalty_Points: 100,
-//       });
-//       console.log("New user created:", user);
-//     } else {
-//       console.log("User already exists:", user);
-//     }
-
-//     res.json(user);
-//   } catch (err) {
-//     console.error("User error:", err);
-//     res.status(500).json({ error: "Internal server error" });
-//   }
-// });
+app.get('/profile', (req, res) => {
+  if (req.oidc && req.oidc.isAuthenticated()) {
+    res.json(req.oidc.user);
+  } else {
+    res.status(401).json({ error: 'Not authenticated' });
+  }
+});
 // Start server
 app.listen(PORT, () => {
   console.log(`✅ Server running at http://localhost:${PORT}`);

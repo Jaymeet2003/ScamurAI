@@ -34,9 +34,7 @@ const Dashboard = () => {
   const handleTransactionClick = (transaction) => {
     setSelectedTransaction(transaction);
     setShowToast(true);
-    setTimeout(() => {
-      setShowToast(false); // Hide toast after 3 seconds
-    }, 3000); // Toast duration: 3 seconds
+    
   };
  
   return (
