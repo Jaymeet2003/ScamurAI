@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import './Dashboard.css';
 import Toast from '../components/toast'; // Import the Toast component
-
+const handleLogout = () => {
+  window.location.href = 'http://localhost:5050/logout';
+};
 const Navbar = () => {
   return (
     <div className="navbar">
@@ -13,7 +15,7 @@ const Navbar = () => {
         <a href="/" className="navbar-home">Peer Network</a>
       </div>
       <div className="navbar-logout">
-        <button className="navbar-logout-btn">Logout</button>
+        <button onClick = {handleLogout} className="navbar-logout-btn">Logout</button>
       </div>
     </div>
   );
@@ -36,7 +38,7 @@ const Dashboard = () => {
       setShowToast(false); // Hide toast after 3 seconds
     }, 3000); // Toast duration: 3 seconds
   };
-
+ 
   return (
     <div className="dashboard-container">
       <Navbar />

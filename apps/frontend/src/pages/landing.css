@@ -20,6 +20,7 @@
     top: 0;
     z-index: 50;
     border-bottom: 1px solid #312e81;
+    padding: 0.5rem 0;
 }
 
 .navbar-content {
@@ -27,7 +28,6 @@
     margin: 0 auto;
     padding: 0 1rem;
     padding-right: 4rem; /* This shifts the login button right */
-    height: 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -54,6 +54,7 @@
     padding-top: 6rem;
     position: relative;
     z-index: 10;
+    padding-bottom: 4rem;
 }
 
 .orbitron {
@@ -115,15 +116,46 @@
     border-top: 1px solid #312e81;
     position: relative;
     z-index: 10;
+    padding: 2rem 0;
 }
 
 .btn-gradient {
     background: linear-gradient(to right, #6366f1, #9333ea);
     color: white;
     border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    transition: background 0.3s ease;
+}
+
+.btn-gradient:hover {
+    background: linear-gradient(to right, #9333ea, #6366f1);
 }
 
 .btn-outline {
     border: 2px solid #6366f1;
     color: #a5b4fc;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    transition: color 0.3s ease;
+}
+
+.btn-outline:hover {
+    color: #6366f1;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .navbar-content {
+        padding-right: 2rem; /* Adjusted for mobile */
+    }
+
+    .feature-card {
+        width: 100%;
+        margin: 1rem 0;
+    }
+    
+    .main-section {
+        padding-top: 5rem;
+    }
 }
