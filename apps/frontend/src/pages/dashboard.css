@@ -2,7 +2,7 @@
   font-family: 'Orbitron', sans-serif;
   padding: 20px;
   background-color: #0a0a14; /* Dark background */
-  color: #e0e0ff; /* Light text color */
+  color: #d0d0ff; /* Slightly brighter text color */
   border-radius: 10px;
   margin-top: 80px; /* To offset navbar */
 }
@@ -17,13 +17,13 @@
 .dashboard-header h1 {
   margin: 0;
   font-size: 36px;
-  color: #e0e0ff;
+  color: #d0d0ff; /* Slightly brighter text color */
 }
 
 .dashboard-header p {
   margin: 0;
   font-size: 18px;
-  color: #d0d0ff;
+  color: #c0c0ff; /* Slightly brighter text color */
 }
 
 .dashboard-main {
@@ -36,7 +36,7 @@
   background-color: #333;
   padding: 20px;
   border-radius: 10px;
-  min-height: 200px;
+  min-height: 400px;
   border: 2px solid #6366f1;
 }
 
@@ -54,7 +54,7 @@
 .transaction-table table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #333;
+  background-color: rgba(51, 51, 51, 0.85); /* Slightly more opaque background */
   border-radius: 8px;
   border: 2px solid #6366f1;
 }
@@ -64,6 +64,7 @@
   text-align: center;
   border-bottom: 1px solid #555;
   font-size: 16px;
+  color: #d0d0ff; /* Bright white text color */
 }
 
 .transaction-table th {
@@ -80,6 +81,7 @@
   color: #28a745;
   font-weight: bold;
 }
+
 
 .fraud-alerts {
   display: flex;
@@ -108,7 +110,7 @@
 .fraud-alert-status {
   font-size: 18px;
   margin-bottom: 10px;
-  color: #fff;
+  color: #fff; /* Slightly brighter text color */
 }
 
 .fraud-alert-amount {
@@ -151,36 +153,26 @@
   box-sizing: border-box; /* Prevents overflow issues */
 }
 
-
 .navbar-logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #e0e0ff;
+  color: #d0d0ff; /* Slightly brighter text color */
 }
 
 .navbar-links {
   display: flex;
-  gap: 20px;
+  gap: 15px; /* Reduced the gap for a smaller space between links */
   align-items: center;
+  margin-left: 10px; /* Shift it a little left */
 }
 
 .navbar-links a {
-  color: #e0e0ff;
+  color: #d0d0ff; /* Slightly brighter text color */
   text-decoration: none;
   font-size: 16px;
 }
 
 .navbar-links a:hover {
-  color: #9333ea;
-}
-
-.navbar-home {
-  font-size: 16px;
-  font-weight: bold;
-  color: #e0e0ff;
-}
-
-.navbar-home:hover {
   color: #9333ea;
 }
 
@@ -199,6 +191,7 @@
   background: linear-gradient(to right, #6366f1, #9333ea);
   transform: scale(1.05);
 }
+
 
 /* Modal Styles */
 .modal-overlay {
@@ -246,23 +239,28 @@
   background-color: #9333ea;
   transform: scale(1.05);
 }
-/* Toast Styles */
+
 /* Toast Styles */
 .toast {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: #0a0a14; /* Match the dashboard background */
-  
-  padding: 15px;
+  padding: 30px; /* Increased padding for more height */
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   transition: opacity 0.5s ease;
+  color: #d0d0ff; /* Slightly brighter text color */
+  width: 400px; /* Set a fixed width */
+  max-width: 80%; /* Ensure responsiveness */
+  min-height: 350px; /* Set a minimum height */
 }
 
 .toast-header {
   font-weight: bold;
+  font-size: 18px;
 }
 
 .toast-body {
@@ -272,11 +270,11 @@
 .toast-close-btn {
   background-color: #6366f1;
   color: white;
-  padding: 8px 16px;
+  padding: 10px 20px; /* Increased padding */
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 15px;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
@@ -284,6 +282,7 @@
   background-color: #7a1de1;
   transform: scale(1.05);
 }
+
 .toast-container {
   position: fixed;
   top: 50%;
@@ -298,10 +297,12 @@
   text-align: center;
   animation: fadeIn 0.3s ease-in-out;
 }
+
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
-  }}
+  }
+}

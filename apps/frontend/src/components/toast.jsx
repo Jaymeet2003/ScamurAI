@@ -1,18 +1,20 @@
-// Toast.jsx
-import React from "react";
+import React from 'react';
+
 
 const Toast = ({ transaction, onClose }) => {
   return (
     <div className="toast">
       <div className="toast-header">
-        <strong>Transaction ID:</strong> {transaction.id}
+        <strong>Transaction Details</strong>
       </div>
       <div className="toast-body">
-        <div><strong>Amount:</strong> {transaction.amount}</div>
-        <div><strong>Risk Score:</strong> {transaction.riskScore}</div>
-        <div><strong>Reets-Cross-Check:</strong> {transaction.reetsCheck}</div>
+        <p><strong>Transaction ID:</strong> {transaction.id}</p>
+        <p><strong>Amount:</strong> {transaction.amount}</p>
+        <p><strong>Status:</strong> {transaction.status}</p>
+        <p><strong>Risk Score:</strong> {transaction.riskScore}</p>
+        <p><strong>Timestamp:</strong> {transaction.timestamp}</p>
       </div>
-      <button onClick={onClose} className="toast-close-btn">Close</button>
+      <button className="toast-close-btn" onClick={onClose}>Close</button>
     </div>
   );
 };
