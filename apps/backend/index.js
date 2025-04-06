@@ -1,8 +1,9 @@
 const express = require('express');
 const fetch = require('node-fetch');
 const fs = require('fs');
-const { findAndProcessNewCharge } = require('./stripe');
+const { findAndProcessNewCharge } = require('./stripe/stripe');
 require('dotenv').config();
+const { publishFraud } = require('./gun/gunsea');
 
 const cors = require('cors');  // Add this import
 const { auth } = require('express-openid-connect');
@@ -72,4 +73,24 @@ app.get('/payment', async (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`✅ Server listening at http://localhost:${PORT}`);
+});
+
+// 🔐 Securely handle fraud pattern publishing
+app.post('/gun-publish', async (req, res) => {
+  const data = req.body;
+
+  if (!data?.id || !data?.amount) {
+    return res.status(400).json({ error: 'Missing required fraud data' });
+  }
+
+  try {
+    // Add createdAt if not already present
+    data.createdAt = data.createdAt || new Date().toISOString();
+
+    publishFraud(data); // Signed + broadcasted by gunsea.js
+    return res.json({ status: 'published', id: data.id });
+  } catch (err) {
+    console.error('❌ Error publishing fraud alert:', err);
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
 });

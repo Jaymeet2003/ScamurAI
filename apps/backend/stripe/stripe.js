@@ -1,6 +1,9 @@
-require('dotenv').config();
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const fs = require('fs');
+const path = require('path');
+require('dotenv').config({
+  path: path.resolve(__dirname, "../../../.env")
+});
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 let lastSeenChargeId = null;
 
