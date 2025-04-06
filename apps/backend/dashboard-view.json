@@ -1,0 +1,29 @@
+{
+  "payment_intent_id": "pi_3RAnZ5Fs058Ux2Mv1ybmFwA3",
+  "charge_id": "ch_3RAnZ5Fs058Ux2Mv1wID9cGW",
+  "amount": "$10.00",
+  "timestamp": "2025-04-06T07:24:45.000Z",
+  "user_ip": "8.8.8.8",
+  "geolocation": {},
+  "charge": {
+    "status": "succeeded",
+    "brand": "visa",
+    "last4": "4242",
+    "country": "US",
+    "risk_score": 13,
+    "risk_level": "normal",
+    "message": "Payment complete."
+  },
+  "billing_details": {
+    "email": "ayushthakkar18@gmail.com",
+    "name": "Ayush Thakkar",
+    "address": {
+      "city": "Hanover Park",
+      "country": "US",
+      "line1": "1244 Hialeah ln",
+      "line2": null,
+      "postal_code": "60133",
+      "state": "IL"
+    }
+  }
+}
