@@ -3,7 +3,7 @@ const path = require("path");
 const Gun = require("gun");
 require("gun/sea");
 require("dotenv").config({
-    path: path.resolve(__dirname, "../../.env")
+    path: path.resolve(__dirname, "../../../.env")
 });
 const express = require("express");
 const http = require("http");
@@ -48,8 +48,9 @@ async function broadcastFraudAlert(data) {
 app.get("/", (req, res) => res.send("🔫 Gun.js Relay with SEA ready"));
 
 const PORT = process.env.PORT_RELAY || 3031;
-server.listen(PORT, () => {
-  console.log(`🚀 Gun relay running at http://localhost:${PORT}/gun`);
+const HOST = process.env.RELAY_HOST || '0.0.0.0';
+server.listen(PORT, HOST, () => {
+  console.log(`🚀 Gun relay running at http://${HOST}:${PORT}/gun`);
 });
 
 module.exports = { broadcastFraudAlert, keypair, gun };
