@@ -70,8 +70,8 @@ async def root(request: Request):
                 "fraud": bool(is_fraud),
                 "score": float(prob),
                 "threshold": float(threshold),
-                "amount": payment_intent.get("amount", 0) / 100,
-                "transactionID": payment_intent.get("id", "unknown"),
+                "amount": float(payment_intent.get("amount", 0) / 100),
+                "transactionID": str(payment_intent.get("id", "unknown")),
                 "date": datetime.utcfromtimestamp(payment_intent.get("created", 0)).isoformat()
             }
 
@@ -91,11 +91,15 @@ async def root(request: Request):
 
             print("✅ Saved Prediction Result:", result)
             
-            try:
-                requests.post("http://localhost:5050/gun-publish", json=result)
-                print("📡 Fraud alert published to Gun network.")
-            except Exception as e:
-                print("❌ Failed to publish to Gun network:", e)
+            if result and all(k in result for k in ("transactionID", "amount", "fraud")):
+                try:
+                    response = requests.post("http://localhost:5050/gun-publish", json=result)
+                    print(f"📡 Sent to /gun-publish | Status: {response.status_code}")
+                    print("📩 Response:", response.text)
+                except Exception as e:
+                    print("❌ Failed to publish to Node.js /gun-publish:", e)
+
+            return result
 
         return {
             "fraud": False,
